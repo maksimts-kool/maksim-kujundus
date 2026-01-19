@@ -1,0 +1,119 @@
+# Estonian translation for maksim-kujundus
+# Copyright (C) 2026
+# This file is distributed under the same license as the maksim-kujundus package.
+msgid ""
+msgstr ""
+"Project-Id-Version: maksim-kujundus 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-19 12:00+0000\n"
+"PO-Revision-Date: 2026-01-19 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Estonian\n"
+"Language: et_EE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: template-parts/content.php:76
+msgid "Read more"
+msgstr "Loe edasi"
+
+#. translators: %s: list of categories.
+#: inc/template-tags.php:152
+msgid "Posted in %s"
+msgstr "Postitatud kategooriasse %s"
+
+#. translators: %s: post title
+#: inc/template-tags.php:173
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Jäta kommentaar<span class=\"screen-reader-text\"> teemale %s</span>"
+
+#. translators: %s: post date.
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Postitatud %s"
+
+#. translators: %s: post author.
+msgctxt "post author"
+msgid "by %s"
+msgstr "autor %s"
+
+#. translators: 1: list of tags.
+msgid "Tagged %1$s"
+msgstr "Sildid: %1$s"
+
+#. translators: used between list items, there is a space after the comma
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+msgid "Primary Menu"
+msgstr "Peamenüü"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Muuda <span class=\"screen-reader-text\">%s</span>"
+
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oih! Seda lehte ei leitud."
+
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Tundub, et selles asukohas ei leitud midagi. Võib-olla proovida ühte allolevatest linkidest või otsingut?"
+
+msgid "Most Used Categories"
+msgstr "Enim kasutatud kategooriad"
+
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Proovi vaadata kuuarhiividest. %1$s"
+
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Vabandust, kuid otsingu tulemusi ei leitud. Palun proovi teiste märksõnadega."
+
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Tundub, et me ei leia, mida otsite. Võib-olla otsing aitab."
+
+msgid "Pages:"
+msgstr "Lehed:"
+
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Jätka lugemist<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+msgid "Comments"
+msgstr "Kommentaarid"
+
+msgid "Comment"
+msgstr "Kommentaar"
+
+msgid "Your comment is awaiting moderation."
+msgstr "Teie kommentaar ootab modereerimist."
+
+msgid "Reply"
+msgstr "Vasta"
+
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Website"
+msgstr "Veebileht"
+
+msgid "Post Comment"
+msgstr "Postita kommentaar"
+
+msgid "Search"
+msgstr "Otsi"
+
+msgid "Search for:"
+msgstr "Otsi:"
+
+msgid "Search Results for: %s"
+msgstr "Otsingutulemused: %s"
+
+msgid "Nothing Found"
+msgstr "Midagi ei leitud"
+
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Valmis avaldama oma esimest postitust? <a href=\"%1$s\">Alusta siit</a>."
