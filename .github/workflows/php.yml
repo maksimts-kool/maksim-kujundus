@@ -45,7 +45,7 @@ jobs:
       run: composer run-script lint:php
 
     - name: Run WordPress Theme Code Standards
-      run: composer run-script lint:wpcs -- --standard=WordPress-Core --exclude=WordPress.Files.FileName --ignore=vendor,node_modules,languages
+      run: composer run-script lint:wpcs
 
     - name: Check text domain consistency
       run: |
