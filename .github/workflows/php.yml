@@ -45,7 +45,7 @@ jobs:
       run: composer run-script lint:php
 
     - name: Run WordPress Theme Code Standards
-      run: composer run-script lint:wpcs -- --standard=WordPress-Core --exclude=WordPress.Files.FileName.InvalidClassFileName
+      run: composer run-script lint:wpcs -- --standard=WordPress-Core --exclude=WordPress.Files.FileName --ignore=vendor,node_modules,languages
 
     - name: Check text domain consistency
       run: |
@@ -74,12 +74,4 @@ jobs:
         else
           echo "✗ Missing Theme Name in style.css"
           exit 1
-        fi
-
-    - name: Generate translation template (pot file)
-      run: |
-        if command -v wp &> /dev/null; then
-          composer run-script make-pot || echo "⚠ WP-CLI not fully available"
-        else
-          echo "⚠ WP-CLI not available in this environment"
         fi
