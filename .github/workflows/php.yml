@@ -44,8 +44,8 @@ jobs:
     - name: Run PHP Lint
       run: composer run-script lint:php
 
-    - name: Auto-fix WordPress Code Standards
-      run: @php ./vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=WordPress-Core --exclude=WordPress.Files.FileName --ignore=vendor,node_modules,languages .
+    - name: Run automatic fixes with phpcbf
+      run: vendor/bin/phpcbf --standard=WordPress-Core --exclude=WordPress.Files.FileName --ignore=vendor,node_modules,languages .
       continue-on-error: true
 
     - name: Run WordPress Theme Code Standards (Report Only)
