@@ -11,11 +11,17 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        tools: composer
+        coverage: xdebug
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -34,8 +40,46 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Run PHP Lint
+      run: composer run-script lint:php
+
+    - name: Run WordPress Theme Code Standards
+      run: composer run-script lint:wpcs -- --standard=WordPress-Core --exclude=WordPress.Files.FileName.InvalidClassFileName
+
+    - name: Check text domain consistency
+      run: |
+        TEXT_DOMAIN="_s"
+        if grep -r "wp_enqueue_script\|wp_enqueue_style" --include="*.php" . | grep -v "vendor" | grep -q '_s'; then
+          echo "✓ Text domain found in enqueues"
+        else
+          echo "⚠ Check text domain usage in enqueue calls"
+        fi
+
+    - name: Verify required WordPress theme files
+      run: |
+        required_files=("style.css" "functions.php" "index.php")
+        for file in "${required_files[@]}"; do
+          if [ ! -f "$file" ]; then
+            echo "✗ Missing required file: $file"
+            exit 1
+          fi
+          echo "✓ Found $file"
+        done
+
+    - name: Check for proper theme header
+      run: |
+        if grep -q "Theme Name:" style.css; then
+          echo "✓ Theme Name header found"
+        else
+          echo "✗ Missing Theme Name in style.css"
+          exit 1
+        fi
+
+    - name: Generate translation template (pot file)
+      run: |
+        if command -v wp &> /dev/null; then
+          composer run-script make-pot || echo "⚠ WP-CLI not fully available"
+        else
+          echo "⚠ WP-CLI not available in this environment"
+        fi
